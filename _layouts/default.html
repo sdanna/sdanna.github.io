@@ -1,103 +1,15 @@
-<html>
-	<head>
-		<title>Steven D'Anna</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700|Open+Sans+Condensed:300,700" rel="stylesheet" />
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/skel.min.js"></script>
-		<script src="/js/skel-panels.min.js"></script>
-		<script src="/js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="/css/skel-noscript.css" />
-			<link rel="stylesheet" href="/css/style.css" />
-			<link rel="stylesheet" href="/css/style-desktop.css" />
-			<link rel="stylesheet" href="/css/style-wide.css" />
-		</noscript>
-		<!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><script src="/js/html5shiv.js"></script><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 7]><link rel="stylesheet" href="/css/ie7.css" /><![endif]-->
-	</head>
-	<!--
-		Note: Set the body element's class to "left-sidebar" to position the sidebar on the left.
-		Set it to "right-sidebar" to, you guessed it, position it on the right.
-	-->
-	<body class="left-sidebar">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+  {% include head.html %}
 
-				<!-- Content -->
-					<div id="content">
-						<div id="content-inner">
-					
-							{{ content }}
+  <body>
 
-						</div>
-					</div>
+    {% include sidebar.html %}
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-					
-						<!-- Logo -->
-							<div id="logo">
-								<h1>Port City Developer</h1>
-							</div>
-					
-						<!-- Nav -->
-							<nav id="nav">
-								<ul>
-									<li class="current_page_item"><a href="#">Latest Post</a></li>
-									<li><a href="#">Archives</a></li>
-									<li><a href="#">About Me</a></li>
-									<li><a href="#">Contact Me</a></li>
-								</ul>
-							</nav>
+    <div class="content container">
+      {{ content }}
+    </div>
 
-						<!-- Search >
-							<section class="is-search">
-								<form method="post" action="#">
-									<input type="text" class="text" name="search" placeholder="Search" />
-								</form>
-							</section-->
-					
-						<!-- Text -->
-							<section class="is-text-style1">
-								<div class="inner">
-									<p>
-										<strong>Striped:</strong> A free and fully responsive HTML5 site
-										template designed by <a href="http://n33.co/">AJ</a> for <a href="http://html5up.net/">HTML5 up!</a>
-									</p>
-								</div>
-							</section>
-					
-						<!-- Recent Posts -->
-							<section class="is-recent-posts">
-								<header>
-									<h2>Recent Posts</h2>
-								</header>
-								<ul>
-									<li><a href="#">Nothing happened</a></li>
-									<li><a href="#">My Dearest Cthulhu</a></li>
-									<li><a href="#">The Meme Meme</a></li>
-									<li><a href="#">Now Full Cyborg</a></li>
-									<li><a href="#">Temporal Flux</a></li>
-								</ul>
-							</section>
-						
-						<!-- Copyright -->
-							<div id="copyright">
-								<p>
-									&copy; 2014 Steven D'Anna<br />
-									Images: <a href="http://n33.co">n33</a>, <a href="http://fotogrph.com">fotogrph</a><br />
-									Design: <a href="http://html5up.net/">HTML5 UP</a>
-								</p>
-							</div>
-
-					</div>
-
-			</div>
-
-	</body>
+  </body>
 </html>

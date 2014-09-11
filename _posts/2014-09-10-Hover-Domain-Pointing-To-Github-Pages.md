@@ -10,6 +10,6 @@ After a little reading of the help documentation, I was ultimately going to need
 2.  Use CNAME Records to point our top level domain as well as the www subdomain to my Github Pages site at sdanna.github.io.
 
 My config for that looks like the below:
-<img href="{{ site.baseurl }}public/images/Hover-Github-Pages.png" alt="Hover Configuration for Github Pages" />
+<img src="{{ site.baseurl }}public/images/Hover-Github-Pages.png" alt="Hover Configuration for Github Pages" />
 
 It's important to note that when you are creating the CNAME records that you put the trailing dot (.) after the url.  Otherwise you will not have a good time.

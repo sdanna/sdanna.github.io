@@ -7,10 +7,10 @@ The first order of business to standing up my blog was to point my domain regist
 
 After a little reading of the help [documentation](https://help.github.com/articles/about-custom-domains-for-github-pages-sites), I was ultimately going to need to do two things:
 
-1.  Use A Records to point our domain to the IP addresses that Github uses to serve the Jekyll blog.
-2.  Use CNAME Records to point our top level domain as well as the www subdomain to my Github Pages site at sdanna.github.io.
+1.  Use A Records to point my domain to the IP addresses that Github uses to serve the Jekyll blog.
+2.  Use CNAME Records to point my top level domain as well as the www subdomain to my Github Pages site at sdanna.github.io.
 
-My config for that looks like the below:
+My config for that looks like the image below:
 <img src="{{ site.baseurl }}public/images/Hover-Github-Pages.png" alt="Hover Configuration for Github Pages" />
 
 It's important to note that when you are creating the CNAME records that you put the trailing dot (.) after the url.  Otherwise you will not have a good time.

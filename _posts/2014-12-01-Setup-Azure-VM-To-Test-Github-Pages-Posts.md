@@ -11,3 +11,13 @@ I'm writing this post on Surface Pro 3, and running VM's on it messes with the I
 2. I forwarded external port 80 to internal port 4000.
 
 The first item is just to make my life initially easier.  You could just have easily set up a key, I just chose a username/password instead.  The second item will come into play later once we have set everything up on the box and are wanting to test our blog posts.
+
+## Setting up the box with Jekyll
+
+Once Azure tells us the virtual machine is up and running, we can ssh into using the username and password we set up earlier.  Use the following command substituting your username and machine name.
+
+{% highlight bash %}
+
+ssh username@machinename.cloudapp.net
+
+{% endhighlight %}

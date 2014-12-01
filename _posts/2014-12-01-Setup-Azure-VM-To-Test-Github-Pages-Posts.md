@@ -14,10 +14,71 @@ The first item is just to make my life initially easier.  You could just have ea
 
 ## Setting up the box with Jekyll
 
-Once Azure tells us the virtual machine is up and running, we can ssh into using the username and password we set up earlier.  Use the following command substituting your username and machine name.
+Once Azure tells us the virtual machine is up and running, we can ssh into using the username and password we set up earlier.  Use the following command substituting your username and machine name.  You'll be asked for a password; enter in what you set up during VM creation and then you'll be in!
 
 {% highlight bash %}
 
 ssh username@machinename.cloudapp.net
 
 {% endhighlight %}
+
+This is a blank virtual machine with nothing on it and the meat of this blog post is getting it to the point where you can run Jekyll.
+
+### Update apt-get and install prerequisites
+
+Before we can get Jekyll and ruby up and running, we need to make sure our apt-get is updated and we have a few things on the box.  Run the following commands.
+
+{% highlight bash %}
+
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get install -y git-core curl nodejs
+
+{% endhighlight %}
+
+Next, we'll get Ruby up and running using [RVM](https://rvm.io/).  For those just getting started, you could probably skip this step, but from what I understand from my Ruby friends, you want to use RVM to allow for different projects on a server to use different versions of Ruby.  This is a very similar setup to what ASP.NET vNext will use, so you may want to get familiar with the concept.  The instructions are paraphrased from [here](https://rvm.io/rvm/install).
+
+{% highlight bash %}
+
+gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+\curl -sSL https://get.rvm.io | bash -s stable --ruby
+
+{% endhighlight %} 
+
+The above will put RVM on your system and install the stable version of ruby.  I found I needed to exit the linux session and then ssh back into the box to get access to the RVM command.  Once you've done that, you can finish out by installing the correct version of ruby and getting bundler installed.
+
+{% highlight bash %}
+
+rvm install 2.0
+gem install bundler
+
+{% endhighlight %} 
+
+### Your Repository and Jekyll
+
+You should clone your repository, cd into the repository root, and ensure that you have a Gemfile in your repository root with the following contents.
+
+{% highlight bash %}
+
+source 'https://rubygems.org'
+gem 'github-pages'
+
+{% endhighlight %} 
+
+Once you have that, use bundler to make sure all the gems are installed from the Gemfile.
+
+{% highlight bash %}
+
+bundle install
+
+{% endhighlight %} 
+
+Once that gets finished, you should be good to go.  Just run the following command to start your server on port 4000.
+
+{% highlight bash %}
+
+bundle exec jekyll serve
+
+{% endhighlight %} 
+
+Use your browser to hit your virtual machine, using the cloudapp.net address.  This will hit port 80 on the box, which if you remember from earlier we forwarded to port 4000 internally.  You should see your github pages site!

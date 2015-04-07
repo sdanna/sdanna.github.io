@@ -6,12 +6,14 @@ For this situation we tokenized the alpha parts of the generated id's into a num
 
 Due to how I broke the task up, I used the Oracle REGEXP_LIKE and REGEXP_REPLACE functions in a CASE statement to pull the working set how I needed it.
 
-```PLSQL
+```SQL
 CASE
-	WHEN REGEXP_LIKE(TABLE.FIELD_NAME, '^\\\\d{0,10}$) THEN TO_NUMBER(TABLE.FIELD_NAME)
-	WHEN REGEXP_LIKE(TABLE.FIELD_NAME, '^[A-Za-z]{1,10}\\\\d{0,10}$) then TO_NUMBER(REGEXP_REPLACE(TABLE.FIELD_NAME, '[A-Za-Z]{1,10}', '10'))
+	WHEN REGEXP_LIKE(TABLE.FIELD_NAME, '^\\d{0,10}$) THEN TO_NUMBER(TABLE.FIELD_NAME)
+	WHEN REGEXP_LIKE(TABLE.FIELD_NAME, '^[A-Za-z]{1,10}\\d{0,10}$) then TO_NUMBER(REGEXP_REPLACE(TABLE.FIELD_NAME, '[A-Za-Z]{1,10}', '10'))
 	ELSE 0
 END
 ```
 
 This allowed me to leave my existing id's that were numeric alone and then tokenize the alpha parts of the id with a number.  The same concept could be used with a different number; 10 just fit my requirements.  I had to make sure I wasn't going to overflow the integer column in the SQL Server database.
+
+NOTE: You'll notice the double leading slashes on the regular expression.  This was needed due to how ODI Studio sends the values you enter to generate a script.  I need the double slashes so that the generated SQL had a single slash and the regular expression would work correctly.  I used regular expressions in other parts of the query, but only the SELECT portion of the script had this anomoly.  Some things you don't want to dig too deeply into.  This is one of them.

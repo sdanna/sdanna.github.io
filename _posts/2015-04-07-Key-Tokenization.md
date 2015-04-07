@@ -1,3 +1,8 @@
+---
+layout: post
+title: Key Tokenization
+---
+
 I mentioned in my previous [post](http://stevendanna.com/2015/03/28/Moving-Data-with-ODI-Studio/) about having to move data from an Oracle 12g database into a SQL Server database.  The SQL Server still had several applications that needed to read from it but the Oracle database was the source of truth.  In our case, the applications that sat on top of the SQL Server database were readonly type applications.
 
 At the beginning of the project, I was told that id's in the Oracle database were generated using a standard sequence that generated numbers for new records that were higher than the the top value of the SQL Server.  Not only was this not true I found out, but we had the extra caveat that simply dropping the alpha part of the number would result in number collisions across the two databases.
